@@ -1,0 +1,77 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.enlaces-menu{
+    width: 100%;
+    height: 80px;
+    background-color: rgb(255, 142, 89);
+    display: flex;
+    
+}
+.Enlaces{
+    width: 33%;
+    height: 80px;
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
+}
+.contenido{
+    width: 100%;
+    height: auto;
+    display: flex;
+  margin: 10px 0px;
+    justify-content: center;
+    align-items: center;
+}
+.contenedor-mariposa{
+    width: 100%;
+    height: auto;
+    background-color: rgb(248, 215, 144);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.tipo-mariposa{
+    width: 35%;
+    height: auto;
+    background-color:  rgb(238, 128, 68);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin:20px;
+}
+.tipo-mariposa img{
+    width: 80%;
+}
+.tipo-mariposa:hover{
+    background-color: rgb(103, 168, 230);
+}
+@media screen and (max-width:400px){
+body{
+    background-color: rgb(255, 175, 110);
+}
+.enlaces-menu{
+    width: 100%;
+}
+.tipo-mariposa{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contenido{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenido img{
+    width: 80%;
+    display: flex;
+}
+}
+
+
