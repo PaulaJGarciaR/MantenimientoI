@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica Eventos Dos</title>
+    <style>
+    #titulo{
+        display: block;
+        width: 100%;
+        text-align: center;
+
+    }
+  #contenido{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #boton{
+    margin-left: 20px;
+  }
+  #valorInput{
+    text-align: center;
+  }
+  #cajaTextoDos{
+    margin-left: 20px;
+    background-color: lightgreen;
+  }
+  #parrafo{
+    width: 100%;
+    background-color: grey;
+    text-align: center;
+    font-weight: 700;
+    color:white;
+    padding: 5px;
+  }
+  #parrafo:hover{
+    box-shadow: 0px 0px 15px white;
+  }
+    </style>
+</head>
+<body id="contenedor">
+    <h1 id="titulo">Practica con Eventos en JavaScript</h1>
+   <div id="contenido">
+    <input type="text" id="cajaTexto">
+    <input type="text" id="cajaTextoDos">
+    <button id="boton">BOTON</button>
+   </div>
+   <h1 id="valorInput"></h1>
+   <p id="parrafo">CAMBIAR COLOR FONDO</p>
+
+   <script>
+   (function(){
+   document.getElementById("cajaTexto").style.background="white";
+   document.getElementById("cajaTextoDos").style.background="white";
+   
+    var cambioFondo=function(){
+        document.getElementById("contenedor").style.background="cornflowerblue";
+        // var valorTexto=document.getElementById("cajaTexto").value;
+        // valorTexto=valorTexto.toUpperCase();
+        // document.getElementById("valorInput").innerText=valorTexto;
+        // document.getElementById("valorInput").style.color="black";
+       
+    }
+    var colorOriginal=function(){
+        document.getElementById("contenedor").style.background="white";
+    }
+    var inputCorrecto=function(){
+        document.getElementById("cajaTexto").style.background="green";
+        document.getElementById("cajaTextoDos").style.background="blue";
+    }
+    var calculoSuma=function(){
+        document.getElementById("contenedor").style.background="lightgreen";
+     let numeroUno=parseInt(document.getElementById("cajaTexto").value);
+     let numeroDos=parseInt(document.getElementById("cajaTextoDos").value);
+     document.getElementById("valorInput").innerText=(numeroUno+numeroDos);
+     document.getElementById("valorInput").style.color="black";
+    }
+    var cambiarColorFondo=function(){
+     document.getElementById("contenedor").style.background="pink";
+    }
+    var cambiarFondo=document.getElementById("boton");
+    boton.addEventListener("click",calculoSuma);
+    cambiarFondo.addEventListener("mouseout",colorOriginal);
+    cajaTexto.addEventListener("focus",inputCorrecto);
+    cajaTextoDos.addEventListener("blur",inputCorrecto);
+    parrafo.addEventListener("mouseover",cambiarColorFondo);
+    parrafo.addEventListener("mouseout",colorOriginal);
+
+
+    }())
+
+   </script>
+
+</body>
+</html>
