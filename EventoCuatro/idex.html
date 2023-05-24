@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Cuatro</title>
+    <style>
+    #contenedor{
+        background-color: pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contenido{
+        width: 40%;
+        height: auto;
+    }
+    .contenedor-datos{
+        width: 100%;
+        height: auto;
+        background-color: rgb(241, 96, 120);
+        border-radius: 5px;
+    }
+    .contenido-datos{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .titulo-caja{
+        width: 40%;
+        margin-top: 10px;
+    }
+    .contenido-boton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #boton{
+        margin:10px;
+    }
+    #titulo{
+        text-align: center;
+    }
+    </style>
+</head>
+<body id="contenedor"> 
+    <div class="contenido">
+    <div class="contenedor-datos">
+        <h1 id="titulo">Nombres</h1>
+    <div class="contenido-datos"><label  class="titulo-caja" for="">Primer Nombre:</label><input  id="cajaTextoUno" type="text"></div>
+    <div class="contenido-datos"><label class="titulo-caja" for="">Segundo Nombre:</label><input  id="cajaTextoDos" type="text"></div>
+    <div class="contenido-boton"><button onclick="validar()" id="boton">ENVIAR</button></div>
+    <h3 id="alerta-caja"></h3>
+    <h3 id="alerta-contenido"></h3>
+    <h4 id="valores-ingresados"></h4>
+    </div>
+    </div>
+    
+    <script>
+        function validar(){
+            var tamanoValorInputUno=document.getElementById("cajaTextoUno").value.length;
+            var tamanoValorInputDos=document.getElementById("cajaTextoDos").value.length;
+            var total=tamanoValorInputUno+tamanoValorInputDos;
+            console.log(total);
+
+            if(tamanoValorInputUno>3 && tamanoValorInputUno<20 ){
+                document.getElementById("cajaTextoUno").style.background="green";
+            }else{
+                document.getElementById("cajaTextoUno").style.background="red";
+            }
+            if(tamanoValorInputDos>3 && tamanoValorInputDos<20 ){
+                document.getElementById("cajaTextoDos").style.background="green";
+            }else{
+                document.getElementById("cajaTextoDos").style.background="red";
+            }
+        if((tamanoValorInputUno>3 && tamanoValorInputUno<20 )&&(tamanoValorInputDos>3 && tamanoValorInputDos<20 )){
+            let mensaje="datos correctamente diligenciados";
+            mensaje=mensaje.toUpperCase();
+            document.getElementById("alerta-caja").innerText=mensaje;
+            document.getElementById("alerta-caja").style.background="green";
+            document.getElementById("alerta-caja").style.borderColor="green";
+        }else
+         mensaje="Los datos no cumplen los requisitos";
+            mensaje=mensaje.toUpperCase();
+            document.getElementById("alerta-caja").innerText=mensaje;
+            document.getElementById("alerta-caja").style.background="red";
+            document.getElementById("alerta-caja").style.borderColor="red";
+            document.getElementById("alerta-caja").style.color="white";
+        if(total > 10){
+            let mensajeDos="numeros de caracteres en peligro";
+            document.getElementById("alerta-contenido").innerText=mensajeDos;
+            document.getElementById("alerta-contenido").style.background="yellow";
+        }
+     document.getElementById("valores-ingresados").innerText=(document.getElementById("cajaTextoUno").value);
+     document.getElementById("valores-ingresados").style.color="black";
+
+    }
+    var cambiarFondo=function(){
+        document.getElementById("contenedor").style.background="plum";
+    }
+    var cambiarFondoOriginal=function(){
+        document.getElementById("contenedor").style.background="pink";
+       
+    }
+    var contenedorfondo=document.getElementById("boton");
+    contenedorfondo.addEventListener("mouseover",cambiarFondo);
+    contenedorfondo.addEventListener("mouseout",cambiarFondoOriginal);
+
+    document.getElementById("cajaTextoUno").addEventListener("mouseover",function(){
+        document.getElementById("contenedor").style.background="blue";
+    })
+    document.getElementById("cajaTextoUno").addEventListener("mouseout",function(){
+        document.getElementById("contenedor").style.background="pink";
+    })
+    </script>
+</body>
+</html>
