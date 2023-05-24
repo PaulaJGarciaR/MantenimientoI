@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Tres</title>
+    <style>
+
+        #contenedor{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .contenido{
+            width: 40%;
+            height: auto;
+            display: block;
+            background-color: rgb(140, 217, 255);
+        }
+        .datos{
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            width: 100%;
+            padding: 10px;
+        }
+        .label{
+            width: 35%;
+        }
+        .contenido-boton{
+            margin: 5px;
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+        .contenedor-parrafo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #parrafo{
+            width: 50%;
+        }
+    </style>
+</head>
+<body id="contenedor">
+    <div class="contenido">
+        <div class="datos">
+        <label for="" class="label">Primer Nombre:</label>
+        <input onblur="validarDatos()" type="text" id="cajaTextoUno">
+       </div>
+       <div class="datos">
+        <label for="" class="label">Segundo Nombre:</label>
+        <input onblur="validarDatos()" type="text" id="cajaTextoDos">
+    </div>
+    <div class="datos">
+        <label for=""  class="label">Primer Apellido:</label>
+        <input onblur="validarDatos()" type="text" id="cajaTextoTres">
+    </div>
+    <div class="datos">
+        <label for=""  class="label">Segundo Apellido:</label>
+        <input onblur="validarDatos()" type="text" id="cajaTextoCuatro">
+    </div>
+    <div onclick="mostrarDatos()" class="contenido-boton"><button id="boton">Enviar</button></div>
+    <div class="contendedor-parrafo"><h1 id="alertas"></h1></div>
+    <div class="contendedor-parrafo">
+        <h6 id="valorInputUno"></h6>
+        <h6 id="valorInputDos"></h6>
+        <h6 id="valorInputTres"></h6>
+        <h6 id="valorInputCuatro"></h6>
+    </div>
+    </div>
+    <script>
+       function validarDatos(){
+       var inputUno=document.getElementById("cajaTextoUno").value.length;
+       var inputDos=document.getElementById("cajaTextoDos").value.length;
+       var inputTres=document.getElementById("cajaTextoTres").value.length;
+       var inputCuatro=document.getElementById("cajaTextoCuatro").value.length;
+       if((inputUno>3 && inputUno<20)){
+        document.getElementById("cajaTextoUno").style.background="green";
+       }
+       else{
+        document.getElementById("cajaTextoUno").style.background="red";
+       }
+       if((inputDos>3 && inputDos<20)){
+        document.getElementById("cajaTextoDos").style.background="green";
+       }
+       else{
+        document.getElementById("cajaTextoDos").style.background="red";
+       }
+       if((inputTres>3 && inputTres<20)){
+        document.getElementById("cajaTextoTres").style.background="green";
+       }
+       else{
+        document.getElementById("cajaTextoTres").style.background="red";
+       }
+       if((inputCuatro>3 && inputCuatro<20)){
+        document.getElementById("cajaTextoCuatro").style.background="green";
+       }
+       else{
+        document.getElementById("cajaTextoCuatro").style.background="red";
+       }
+       
+       if((inputUno>3 && inputUno<20)&&(inputDos>3 && inputDos<20)&&(inputTres>3 && inputTres<20)&&(inputCuatro>3 && inputCuatro<20)){
+        var Alerta= "Datos Correctos";
+        Alerta=Alerta.toUpperCase();
+        document.getElementById("alertas").innerText=Alerta;
+        document.getElementById("alertas").style.background="green";
+        document.getElementById("alertas").style.borderColor="green";
+        document.getElementById("alertas").style.color="black";
+       }else{
+        var Alerta= "Datos no cumplen los requerimientos";
+        Alerta=Alerta.toUpperCase();
+        document.getElementById("alertas").innerText=Alerta;
+        document.getElementById("alertas").style.background="red";
+        document.getElementById("alertas").style.borderColor="red";
+        document.getElementById("alertas").style.color="white";
+       }
+       }
+       function mostrarDatos(){
+        var valor=document.getElementById("cajaTextoUno").value;
+       document.getElementById("valorInputUno").innerText=valor;
+       document.getElementById("valorInputUno").style.color="black";
+       }
+    </script>
+</body>
+</html>
