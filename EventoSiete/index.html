@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: pink;
+        }
+    #contenedor{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      }
+      .contenedor{
+        width: 40%;
+        height: auto;
+        background-color: white;
+        border-radius: 20px;
+        flex-direction: column;
+        transition: box-shadow 0.5s;
+      }
+      .contenedor:hover{
+        box-shadow: 0px 2px 20px gray;
+      }
+      .contenido{
+        width: 100%;
+        height: auto;
+      }
+      .caja-boton{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin-top: 20px;
+      }
+      h4{
+        text-align: center;
+      }
+      #boton{
+        margin-left: 10px;
+        background-color: rgb(255, 149, 167);
+        color:black;
+        font-weight: 700;
+        border-style: none;
+        padding:10px;
+        border-radius: 20px;
+      }
+    </style>
+</head>
+<body id="contenedor">
+    <div class="contenedor">
+    <div class="contenido">
+        <div class="caja-boton">
+    <input id="cajaTexto" type="text">
+    <button onclick="guardar()" id="boton">GUARDAR</button>
+     </div>
+    <h4>Suma</h4>
+    <h4 id="sumaResultado"></h4>
+    <h4>Resta</h4>
+    <h4 id="restaResultado"></h4>
+    <h4>multiplicacion</h4>
+    <h4 id="multiplicacionResultado"></h4>
+    <h4>Promedio</h4>
+    <h4 id="promedioResultado"></h4>
+    <h4 id="alerta"></h4>
+    <h4 id="alertaCorrecto"></h4>
+</div>
+ </div>
+</body>
+<script>
+    var arreglo=[];
+    function guardar(){
+        let valores=document.getElementById("cajaTexto").value;
+        arreglo.push(valores);
+        console.log(arreglo);
+        let suma=0;
+        let resta=0;
+        let multiplicacion=1;
+        let promedio=0;
+        for(let i=0;i<arreglo.length;i++){
+            arreglo[i]=parseInt(arreglo[i]);
+         if(Number.isNaN(arreglo[i])==false){
+            suma=suma+arreglo[i];
+            document.getElementById("sumaResultado").innerText=suma;
+            resta=arreglo[i]-resta;
+            document.getElementById("restaResultado").innerText=resta;
+            multiplicacion=multiplicacion*arreglo[i];
+            document.getElementById("multiplicacionResultado").innerText=multiplicacion;
+            promedio=(suma)/arreglo.length;
+            document.getElementById("promedioResultado").innerText=promedio;
+            let mensaje=" ";
+                document.getElementById("alerta").innerText=mensaje;
+
+         }
+         else{
+            if(Number.isNaN(arreglo[i])==true){
+                let mensaje="EL DATO NO ES DE TIPO NUMERICO";
+                document.getElementById("alerta").innerText=mensaje;
+                document.getElementById("alerta").style.color="red";
+            }
+         }
+         }
+         if(arreglo.length==10){
+            let mensajeCorrecto="Felicidades a Ingresado 10 numeros";
+            document.getElementById("alertaCorrecto").innerText=mensajeCorrecto;
+            document.getElementById("alertaCorrecto").style.color="green";
+        }
+    }
+    document.getElementById("boton").addEventListener("mouseover",function cambiarFondo(){
+    document.getElementById("contenedor").style.background="#c8a7fd";
+    })
+    document.getElementById("boton").addEventListener("mouseout",function cambiarFondo(){
+    document.getElementById("contenedor").style.background="pink";
+    })
+</script>
+</html>
