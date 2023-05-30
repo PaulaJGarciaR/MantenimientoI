@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica Seis</title>
+
+</head>
+
+<body>
+    <input  id="cajaTexto" type="text">
+    <button onclick="guardar()" id="boton">GUARDAR</button>
+    <div class="operaciones">
+    <h4 id="suma">suma</h4>
+    <h4 id="resultadoSuma"></h4>
+    <h4 id="suma">Resta</h4>
+    <h4 id="resultadoResta"></h4>
+    <h4 id="suma">multiplicacion</h4>
+    <h4 id="resultadoMultiplicacion"></h4>
+    <h3 id="alerta"></h3>
+    <h3 id="alertaCorrecto"></h3>
+</div>
+    <script>
+        var arreglo=[];
+        function guardar(){
+        let valor =document.getElementById("cajaTexto").value;
+        arreglo.push(valor);
+       console.log(arreglo);
+       let suma=0;
+       let resta=0;
+       let multiplicacion=1;
+       for(let i=0;i<arreglo.length;i++){
+        arreglo[i]=parseInt(arreglo[i]);
+       if(Number.isNaN(arreglo[i])==false){
+            suma=suma+arreglo[i];
+            document.getElementById("resultadoSuma").innerText=suma;
+            let mensaje=" ";
+            document.getElementById("alerta").innerText=mensaje;
+            resta=arreglo[i]-resta;
+            document.getElementById("resultadoResta").innerText=resta;
+            multiplicacion=multiplicacion*arreglo[i];
+            document.getElementById("resultadoMultiplicacion").innerText=multiplicacion;
+        }
+    else{
+    if(Number.isNaN(arreglo[i])==true){
+                let mensaje="EL DATO INGRESADO NO ES UN NUMERO";
+            document.getElementById("alerta").innerText=mensaje;
+            }}}
+      if(arreglo.length==4){
+        let mensaje="Felicidades";
+            document.getElementById("alertaCorrecto").innerText=mensaje;
+            document.getElementById("alertaCorrecto").style.color="green";
+      }
+        }
+     let[uno,dos,tres]=[1,2,3];
+     console.log(uno);
+       
+     
+     
+
+    
+    </script>
+</body>
+
+</html>

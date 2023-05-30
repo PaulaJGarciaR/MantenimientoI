@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos Cinco</title>
+    <style>
+        #contenedor{
+             display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(149, 225, 255);
+        }
+        .contenedor-form{
+            background-color: rgb(98, 132, 255);
+             width: 40%;
+             height: auto;
+             border-radius: 5px;
+        }
+        .contenedor-datos{
+            width: 100%;
+            flex-direction: column;
+        }
+        .contenido-datos{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content:space-evenly;
+            align-items: center;
+            margin: 15px;
+        }
+        label{
+            width: 40%;
+        }
+        .contenido-boton{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0px;
+        }
+     .alerta{
+        text-align: center;
+     }
+    </style>
+</head>
+<body id="contenedor">
+        <div class="contenedor-form">
+        <div class="contenedor-datos">
+            <div class="contenido-datos">
+                <label for="">Primer Nombre:</label>
+                <input  onblur="validar()"  id="cajaTextoPrimerNombre" type="text">
+            </div>
+            <div class="contenido-datos">
+                <label for="">Segundo Nombre:</label>
+                <input  onblur="validar()" id="cajaTextoSegundoNombre" type="text">
+            </div>
+            <div class="contenido-datos">
+                <label for="">Primer Apellido:</label>
+                <input onblur="validar()" id="cajaTextoPrimerApellido" type="text">
+            </div>
+            <div class="contenido-datos">
+                <label for="">Segundo Apellido:</label>
+                <input onblur="validar()" id="cajaTextoSegundoApellido" type="text">
+            </div>
+            <div class="contenido-boton">
+                <button>ENVIAR</button>
+            </div>
+            <div class="alerta">
+                <h4 id="alerta"></h4>
+            </div>
+        </div>
+    </div>
+    <script>
+     function validar(){
+     let tamanoPrimerNombre=document.getElementById("cajaTextoPrimerNombre").value.length;
+     let tamanoSegundoNombre=document.getElementById("cajaTextoSegundoNombre").value.length;
+     let tamanoPrimerApellido=document.getElementById("cajaTextoPrimerApellido").value.length;
+     let tamanoSegundoApellido=document.getElementById("cajaTextoSegundoApellido").value.length;
+     if((tamanoPrimerNombre<3 || tamanoPrimerNombre>20)&&(tamanoSegundoNombre<3 || tamanoSegundoNombre>20)&&(tamanoPrimerApellido<3 || tamanoPrimerApellido>20)&&(tamanoSegundoApellido<3 || tamanoSegundoApellido>20)){
+        let mensaje="los datos no cumplen los requisitos";
+        mensaje=mensaje.toUpperCase();
+        document.getElementById("alerta").innerText=mensaje;
+         document.getElementById("alerta").style.background="red";
+         document.getElementById("alerta").style.color="white";
+     }
+     if((tamanoPrimerNombre<3 || tamanoPrimerNombre>20)){
+         document.getElementById("cajaTextoPrimerNombre").style.background="red"; 
+         document.getElementById("cajaTextoPrimerNombre").style.borderColor="red";
+         document.getElementById("cajaTextoPrimerNombre").style.color="white";
+     }
+     else{
+        document.getElementById("cajaTextoPrimerNombre").style.background="green"; 
+         document.getElementById("cajaTextoPrimerNombre").style.borderColor="green";
+         document.getElementById("cajaTextoPrimerNombre").style.color="black";
+     }
+     if((tamanoSegundoNombre<3 || tamanoSegundoNombre>20)){
+         document.getElementById("cajaTextoSegundoNombre").style.background="red"; 
+         document.getElementById("cajaTextoSegundoNombre").style.borderColor="red"; 
+         document.getElementById("cajaTextoSegundoNombre").style.color="white";
+     }
+     else{
+        document.getElementById("cajaTextoSegundoNombre").style.background="green"; 
+         document.getElementById("cajaTextoSegundoNombre").style.borderColor="green";
+         document.getElementById("cajaTextoSegundoNombre").style.color="black";
+     }
+     if((tamanoPrimerApellido<3 || tamanoPrimerApellido>20)){
+         document.getElementById("cajaTextoPrimerApellido").style.background="red"; 
+         document.getElementById("cajaTextoPrimerApellido").style.borderColor="red"; 
+         document.getElementById("cajaTextoPrimerApellido").style.color="white";
+     }
+     else{
+        document.getElementById("cajaTextoPrimerApellido").style.background="green"; 
+         document.getElementById("cajaTextoPrimerApellido").style.borderColor="green";
+         document.getElementById("cajaTextoPrimerApellido").style.color="black";
+     }
+     if((tamanoSegundoApellido<3 || tamanoSegundoApellido>20)){
+         document.getElementById("cajaTextoSegundoApellido").style.background="red"; 
+         document.getElementById("cajaTextoSegundoApellido").style.borderColor="red"; 
+         document.getElementById("cajaTextoSegundoApellido").style.color="white";
+     }
+     else{
+        document.getElementById("cajaTextoSegundoApellido").style.background="green"; 
+         document.getElementById("cajaTextoSegundoApellido").style.borderColor="green";
+         document.getElementById("cajaTextoSegundoApellido").style.color="black";
+     }
+     if((tamanoPrimerNombre>3 && tamanoPrimerNombre<20)&&(tamanoSegundoNombre>3 && tamanoSegundoNombre<20)&&(tamanoPrimerApellido>3 && tamanoPrimerApellido<20)&&(tamanoSegundoApellido>3 && tamanoSegundoApellido<20)){
+        let mensaje="los datos cumplen los requisitos";
+        mensaje=mensaje.toUpperCase();
+        document.getElementById("alerta").innerText=mensaje;
+         document.getElementById("alerta").style.background="green";
+         document.getElementById("alerta").style.color="black";
+     }
+    }
+    </script>
+</body>
+</html>

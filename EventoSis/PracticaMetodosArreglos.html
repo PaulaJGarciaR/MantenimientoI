@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="CajaTexto" type="text" name="" id="">
+    <button id="boton">Calcular</button>
+    <script>
+        let diaUno="Jueves";
+        let diaDos="Domingo";
+        let arrayCopia=[];
+        let arrays=["Lunes","Martes","Miercoles"];
+        arrays.push(diaUno);
+        arrays.unshift(diaDos);
+        console.log(arrays);
+        arrays.pop(diaUno);
+        console.log(arrays);
+        arrayCopia=arrays.slice();
+        console.log(arrayCopia);
+        console.log(Array.isArray(arrays));
+    </script>
+</body>
+</html>
